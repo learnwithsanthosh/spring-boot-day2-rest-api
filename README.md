@@ -41,3 +41,29 @@ Sample output
 }
 ]
 ```
+## 📅 Day 3 – Spring Boot: Layered Architecture (Service + Repository)
+
+### ✅ What I Did
+- Refactored my Notes app to follow the **three-layer architecture**:
+    - **Controller Layer** – Handles HTTP requests
+    - **Service Layer** – Contains business logic
+    - **Repository Layer** – Interacts with the database using JPA
+- Used my **Docker-based local SQL database** for data persistence
+- Tested all endpoints using **Postman**
+- Committed code updates with clear structure
+
+### 🔧 Tech Stack
+- Java 17
+- Spring Boot
+- Spring Data JPA
+- Docker (for SQL database)
+- Maven
+- Postman (for testing)
+
+### 📁 Folder/Project Structure
+src/
+└── controller/
+└── service/
+└── repository/
+└── dao/
+└── application.properties
