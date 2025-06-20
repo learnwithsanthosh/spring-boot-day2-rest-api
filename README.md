@@ -64,6 +64,57 @@ Sample output
 src/
 └── controller/
 └── service/
-└── repository/
+└── repo/
 └── dao/
 └── application.properties
+
+## 📅 Day 4 – Spring Boot: Full CRUD with Layered Architecture
+
+### ✅ What I Did
+- Implemented **full CRUD (Create, Read, Update, Delete)** operations for the Notes API
+- Followed **3-layer architecture**:
+  - **Controller Layer** → Handles REST endpoints
+  - **Service Layer** → Business logic + validations
+  - **Repository Layer** → JPA-based DB access
+- Added proper HTTP methods:
+  - `POST /api/notes` → Create note
+  - `GET /api/notes` → Get all notes
+  - `GET /api/notes/{id}` → Get a single note
+  - `PUT /api/notes/{id}` → Update note
+  - `DELETE /api/notes/{id}` → Delete note
+- Connected with local **Docker-based SQL database**
+- Tested all endpoints via **Postman**
+- Handled edge cases (e.g., updating a non-existent note)
+
+---
+
+### 🧪 Technologies Used
+- Java 17
+- Spring Boot 3.x
+- Spring Web
+- Spring Data JPA
+- Docker (MySQL/Postgres)
+- Postman
+- Maven
+
+---
+
+### 📁 Project Structure
+src/
+├── controller/
+├── service/
+├── repo/
+├── dao/
+└── application.properties
+
+
+---
+
+### 🔍 Key Learning
+> CRUD is the foundation of RESTful APIs. Building it using layered architecture improves scalability, testability, and maintainability.
+
+---
+
+### 🚀 Next Steps
+- Add validations using `@Valid` + custom exception handling
+- Connect with frontend (React) via API calls
