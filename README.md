@@ -118,3 +118,53 @@ src/
 ### 🚀 Next Steps
 - Add validations using `@Valid` + custom exception handling
 - Connect with frontend (React) via API calls
+
+## 📅 Day 5 – Spring Boot: Exception Handling & Validation
+
+### ✅ What I Did
+- Implemented **DTO-based validation** using `@Valid`, `@NotBlank`, and `@Size`
+- Created a separate `NoteDTO` class for clean data transfer
+- Added **custom exceptions** (`NoteNotFoundException`)
+- Built a **global exception handler** using `@RestControllerAdvice` and `@ExceptionHandler`
+- Returned user-friendly error responses for:
+  - Validation failures
+  - Resource not found
+- Connected everything to the Notes REST API (continued from Day 4)
+- Tested all scenarios using **Postman**
+
+---
+
+### 🧪 Technologies Used
+- Java 17
+- Spring Boot 3.x
+- Spring Web
+- Spring Data JPA
+- Bean Validation (Jakarta)
+- Docker (MySQL/Postgres)
+- Postman
+
+---
+
+### 🔍 Key Concepts Learned
+- DTO Pattern for API requests
+- Bean validation with custom messages
+- Handling `MethodArgumentNotValidException`
+- Global error handling using `@ControllerAdvice`
+- Clean separation of concerns (validation logic outside controller)
+
+---
+
+### 🚀 Next Steps
+- Add custom validation logic (e.g., check for duplicates)
+- Secure APIs using Spring Security
+- Connect backend with frontend (React) via API calls
+
+---
+
+### 📁 Project Structure (New Additions)
+src/
+├── controller/
+├── dao/ ✅ NEW: NoteDTO with validation
+├── exception/ ✅ NEW: Custom exceptions
+├── model/
+└── repo/

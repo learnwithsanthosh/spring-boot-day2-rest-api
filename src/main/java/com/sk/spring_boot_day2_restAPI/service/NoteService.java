@@ -1,6 +1,7 @@
 package com.sk.spring_boot_day2_restAPI.service;
 
 import com.sk.spring_boot_day2_restAPI.dao.Notes;
+import com.sk.spring_boot_day2_restAPI.exception.NotesNotFoundException;
 import com.sk.spring_boot_day2_restAPI.repo.NotesRepo;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,7 @@ public class NoteService {
     }
 
     public Notes getNoteById(int id) {
-        return notesRepo.findById(id).orElseThrow(()->new RuntimeException("Note not found for given id"));
+        return notesRepo.findById(id).orElseThrow(()->new NotesNotFoundException("Note not found for given id" +id));
     }
 
     public String deleteById(int id) {

@@ -3,7 +3,10 @@ package com.sk.spring_boot_day2_restAPI.dao;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.lang.NonNull;
 
 @Entity
 public class Notes {
@@ -11,7 +14,10 @@ public class Notes {
     @Id
     @GeneratedValue
     private int id;
+
+    @NotBlank(message = "Name must not be empty")
     private String name;
+    @Size(max = 1000, message = "Description too long")
     private String subject;
 
     public Notes() {
