@@ -168,3 +168,38 @@ src/
 ├── exception/ ✅ NEW: Custom exceptions
 ├── model/
 └── repo/
+
+## 📅 Day 6 – Spring Boot: Logging & Basic Unit Testing
+
+### ✅ What I Did
+- Integrated **SLF4J logging** into the Notes API
+  - Logged actions like fetching, creating, and deleting notes
+- Created **basic unit tests** for `NoteService`
+  - Tested note creation and fetching
+- Ensured that the application structure remains clean and scalable
+
+---
+
+### 🧪 Technologies Used
+- Java 17
+- Spring Boot 3.x
+- Spring Web, Spring Data JPA
+- SLF4J (logging)
+- JUnit 5 (testing)
+- Docker (for DB)
+
+---
+
+### 🔍 Key Concepts Learned
+- Using `LoggerFactory` to log application events
+- Writing unit tests for service layer
+- Understanding test annotations like `@SpringBootTest` and `@WebMvcTest`
+- Importance of test isolation and clean output in the console
+- Implemented Service layer already but now added in here
+
+---
+
+### 💡 Logging Example
+```java
+private static final Logger logger = LoggerFactory.getLogger(NoteController.class);
+logger.info("Fetching all notes...");
