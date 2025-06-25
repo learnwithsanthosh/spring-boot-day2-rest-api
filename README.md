@@ -203,6 +203,7 @@ src/
 ```java
 private static final Logger logger = LoggerFactory.getLogger(NoteController.class);
 logger.info("Fetching all notes...");
+```
 
 # Spring Boot – Day 8
 
