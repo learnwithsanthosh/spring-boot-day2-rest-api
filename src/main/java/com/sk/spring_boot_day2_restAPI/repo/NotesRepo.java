@@ -1,6 +1,6 @@
 package com.sk.spring_boot_day2_restAPI.repo;
 
-import com.sk.spring_boot_day2_restAPI.dao.Notes;
+import com.sk.spring_boot_day2_restAPI.entity.Notes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

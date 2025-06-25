@@ -1,13 +1,12 @@
 package com.sk.spring_boot_day2_restAPI.service;
 
 import com.sk.spring_boot_day2_restAPI.controller.NoteController;
-import com.sk.spring_boot_day2_restAPI.dao.Notes;
+import com.sk.spring_boot_day2_restAPI.entity.Notes;
 import com.sk.spring_boot_day2_restAPI.repo.NotesRepo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;

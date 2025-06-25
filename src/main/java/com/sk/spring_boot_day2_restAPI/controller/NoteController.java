@@ -1,8 +1,9 @@
 package com.sk.spring_boot_day2_restAPI.controller;
 
-import com.sk.spring_boot_day2_restAPI.exception.NotesNotFoundException;
+import com.sk.spring_boot_day2_restAPI.dto.NotesDTO;
+import com.sk.spring_boot_day2_restAPI.repsonseAPI.APIResponse;
 import com.sk.spring_boot_day2_restAPI.service.NoteService;
-import com.sk.spring_boot_day2_restAPI.dao.Notes;
+import com.sk.spring_boot_day2_restAPI.entity.Notes;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class NoteController {
@@ -22,9 +22,9 @@ public class NoteController {
     }
 
     @GetMapping("/api/notes")
-    public ResponseEntity<List<Notes>> getNotes(){
+    public ResponseEntity<APIResponse<List<NotesDTO>>> getNotes(){
 
-        return ResponseEntity.ok(service.getallNotes());
+        return ResponseEntity.ok(APIResponse.success(service.getallNotes()));
     }
 
     @PostMapping("/api/notes")
@@ -35,9 +35,8 @@ public class NoteController {
     }
 
     @GetMapping("/api/notes/{id}")
-    public ResponseEntity<Notes> getNotebyId(@PathVariable int id){
-        Notes note= service.getNoteById(id);
-        return ResponseEntity.ok(note);
+    public ResponseEntity<APIResponse<NotesDTO>> getNotebyId(@PathVariable int id){
+        return ResponseEntity.ok(APIResponse.success(service.getNoteById(id)));
     }
 
     @DeleteMapping("/api/notes/{id}")
@@ -46,13 +45,8 @@ public class NoteController {
     }
 
     @PutMapping("/api/notes/{id}")
-    public ResponseEntity<Notes> updateNote(@PathVariable int id, @RequestBody @Valid Notes note){
-        Notes noteForId=service.getNoteById(id);
-
-        noteForId.setName(note.getName());
-        noteForId.setSubject(note.getSubject());
-        service.addNote(noteForId);
-        return ResponseEntity.ok(noteForId);
+    public ResponseEntity<APIResponse<NotesDTO>> updateNote(@PathVariable int id, @RequestBody @Valid Notes note){
+        return ResponseEntity.ok(APIResponse.success(service.updateNote(id,note)));
 
     }
 }

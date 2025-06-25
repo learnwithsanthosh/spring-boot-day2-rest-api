@@ -203,3 +203,26 @@ src/
 ```java
 private static final Logger logger = LoggerFactory.getLogger(NoteController.class);
 logger.info("Fetching all notes...");
+
+# Spring Boot – Day 8
+
+## ✅ Features Implemented
+
+### 1. DTO (Data Transfer Object) Pattern
+- Created dedicated DTO classes to decouple internal entities from API responses.
+- Ensures that database models are not exposed directly to clients.
+- Improves security, flexibility, and maintainability.
+
+### 2. Custom API Response Structure
+- Introduced a generic `ApiResponse<T>` wrapper for all API responses.
+- Standardized the format of success and error messages.
+- Makes it easier for frontend consumers to parse and handle responses.
+
+### 3. Applied Clean Architecture Principles
+- Maintained a clear separation between Controller, Service, and Repository layers.
+- Kept DTOs and response models in dedicated packages for modularity.
+
+## 🚀 Improvements
+- Project now follows best practices for API response handling.
+- Prepares the codebase for integration with frontend apps or external APIs.
+
