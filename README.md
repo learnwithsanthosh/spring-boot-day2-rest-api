@@ -227,3 +227,11 @@ logger.info("Fetching all notes...");
 - Project now follows best practices for API response handling.
 - Prepares the codebase for integration with frontend apps or external APIs.
 
+# Spring Boot – Day 9
+
+### Pagination and Sorting
+- Implemented pagination using Spring Data JPA's `Pageable` and `PageRequest`
+- Supported dynamic sorting via request parameters
+- Returned paged response with metadata for UI consumption
+
+

@@ -5,6 +5,7 @@ import com.sk.spring_boot_day2_restAPI.repsonseAPI.APIResponse;
 import com.sk.spring_boot_day2_restAPI.service.NoteService;
 import com.sk.spring_boot_day2_restAPI.entity.Notes;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -22,9 +23,10 @@ public class NoteController {
     }
 
     @GetMapping("/api/notes")
-    public ResponseEntity<APIResponse<List<NotesDTO>>> getNotes(){
+    public ResponseEntity<APIResponse<Page<NotesDTO>>> getNotes(@RequestParam(defaultValue = "0") int page,
+                                                                @RequestParam(defaultValue = "1") int size){
 
-        return ResponseEntity.ok(APIResponse.success(service.getallNotes()));
+        return ResponseEntity.ok(APIResponse.success(service.getallNotes(page,size)));
     }
 
     @PostMapping("/api/notes")

@@ -35,7 +35,7 @@ public class NoteServiceTest {
     @Test
     public void testGetallNotes(){
         when(notesRepo.findAll()).thenReturn(new ArrayList<>());
-        var response=noteService.getallNotes();
+        var response=noteService.getallNotes(0,1);
         assertNotNull(response);
     }
 

@@ -7,6 +7,10 @@ import com.sk.spring_boot_day2_restAPI.exception.NotesNotFoundException;
 import com.sk.spring_boot_day2_restAPI.repo.NotesRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,13 +27,11 @@ public class NoteService {
     }
 
 
-    public List<NotesDTO> getallNotes() {
+    public Page<NotesDTO> getallNotes(int page,int size) {
         logger.info(" Inside NoteService.getallNotes()");
-        List<Notes> response= notesRepo.findAll();
-        List<NotesDTO> notesDTOS = response
-                .stream()
-                .map(data->new NotesDTO(data.getId(),data.getName(), data.getSubject()))
-                .collect(Collectors.toList());
+        Pageable pageable= PageRequest.of(page,size, Sort.by("name"));
+        Page<Notes> response= notesRepo.findAll(pageable);
+        Page<NotesDTO> notesDTOS = response.map(data->new NotesDTO(data.getId(),data.getName(),data.getSubject()));
         return notesDTOS;
     }
 
